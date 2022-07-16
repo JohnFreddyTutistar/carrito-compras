@@ -3,7 +3,7 @@ const template = document.querySelector(".template")
 const fragment = document.createDocumentFragment()
 const btnFrutas = document.querySelectorAll(".card .btn")
 
-const carritoObjeto = {}
+const carritoObjeto = [];
 
 const agregarAlCarrito = (e) => {
     console.log(e.target.dataset.fruta);
@@ -13,14 +13,21 @@ const agregarAlCarrito = (e) => {
         id: e.target.dataset.fruta,
         cantidad: 1
     }
+    const indice = carritoObjeto.findIndex(
+        (item) => item.id === producto.id
+    )
 
-    if(carritoObjeto.hasOwnProperty(producto.titulo)){
-        producto.cantidad = carritoObjeto[producto.titulo].cantidad + 1
+    console.log(indice)
+
+    if(indice == -1){
+        carritoObjeto.push(producto)
+    } else{
+        carritoObjeto[indice].cantidad ++
     }
 
-    carritoObjeto[producto.titulo] = producto
+    console.log(carritoObjeto)
 
-    pintarCarrito(producto)
+    // pintarCarrito(producto)
     //console.log(carritoObjeto)
 };
 
