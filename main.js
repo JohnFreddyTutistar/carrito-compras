@@ -27,15 +27,15 @@ const agregarAlCarrito = (e) => {
 
     console.log(carritoObjeto)
 
-    // pintarCarrito(producto)
+    pintarCarrito(carritoObjeto)
     //console.log(carritoObjeto)
 };
 
-const pintarCarrito = (producto) => {
+const pintarCarrito = (array) => {
 
     carrito.textContent = ""
     
-    Object.values(carritoObjeto).forEach((item) => {
+    array.forEach((item) => {
         const clone = template.content.firstElementChild.cloneNode(true)
         clone.querySelector(".lead").textContent = item.titulo
         clone.querySelector(".badge").textContent = item.cantidad
