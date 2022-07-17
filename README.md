@@ -1,5 +1,4 @@
 # Ejemplo con carrito de compras y template
-## Todo con fines educativos Si puedes mejorar el codigo bienvenido
 
 ## template
 ```html
