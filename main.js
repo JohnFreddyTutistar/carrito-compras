@@ -5,13 +5,12 @@ const templateFooter = document.querySelector("#templateFooter")
 const fragment = document.createDocumentFragment()
 
 document.addEventListener("click", e => {
-    // console.log(e.target.matches(".card .btn-primary"))
+    
     if(e.target.matches(".card .btn-primary")){
         //console.log("Ejecutar agregar al carro")
         agregarAlCarrito(e)
     }
 
-    // console.log(e.target.matches(".list-group-item .btn-success"))
     if(e.target.matches(".list-group-item .btn-success")){
         btnAumentar(e)
     }
@@ -24,7 +23,6 @@ document.addEventListener("click", e => {
 let carritoObjeto = [];
 
 const agregarAlCarrito = (e) => {
-    //console.log(e.target.dataset.fruta);
 
     const producto = {
         titulo: e.target.dataset.fruta,
@@ -33,20 +31,16 @@ const agregarAlCarrito = (e) => {
         precio: parseInt(e.target.dataset.precio),
     };
 
-    //console.log(producto)
-
     const indice = carritoObjeto.findIndex(
         (item) => item.id === producto.id
      );
 
-    // console.log(indice)
 
     if(indice === -1){
         carritoObjeto.push(producto)
     } else{
         carritoObjeto[indice].cantidad++; 
-        // carritoObjeto[indice].cantidad ++
-        // carritoObjeto[indice].precio = carritoObjeto[indice].cantidad * producto.precio
+
     }
 
     console.log(carritoObjeto)
@@ -86,7 +80,6 @@ const pintarFooter = () => {
     footer.appendChild(clone)
 }
 
-// btnFrutas.forEach(btn => btn.addEventListener("click", agregarAlCarrito))
 
 const btnAumentar = (e) => {
     console.log("Me diste click", e.target.dataset.id)
